@@ -1,17 +1,13 @@
-import { Status } from '@repo/shared';
+// import { values } from '@repo/shared';
 import z from 'zod';
 
-const zStatus = z.enum([
-  Status.COMPLETED,
-  Status.IN_PROGRESS,
-  Status.NOT_INTERESTED,
-] as const);
+const zStatus = z.enum(['NOT_INTERESTED', 'COMPLETED', 'IN_PROGRESS']);
 
 export const zTodo = z.object({
   id: z.string().optional(),
   title: z.string(),
-  description: z.string(),
+  description: z.string().optional(),
   status: zStatus,
 });
 
-export type Todo = z.infer<typeof zTodo>;
+export type TodoType = z.infer<typeof zTodo>;

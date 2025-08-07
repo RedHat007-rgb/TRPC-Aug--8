@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
 import { DbModule } from './db/db.module';
 import { TodoModule } from './todo/todo.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [DbModule, TodoModule],
-  controllers: [],
-  providers: [],
+  imports: [DbModule, TodoModule, ConfigModule.forRoot()],
 })
 export class AppModule {}

@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { values, StatusType } from '@repo/shared';
+import { Status, values } from '@repo/shared';
 
 @Schema()
 export class Todo extends Document {
@@ -16,7 +16,7 @@ export class Todo extends Document {
     required: true,
     enum: values,
   })
-  status: StatusType;
+  status: Status;
 }
 
 export const todoSchema = SchemaFactory.createForClass(Todo);
